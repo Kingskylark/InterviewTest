@@ -35,9 +35,9 @@ if st.session_state.test_started:
         st.warning("Time is up! Please submit your answers.")
         st.session_state.test_started = False
 
-    # Display remaining time
+    # Display remaining time at the top of the page
     mins, secs = divmod(int(st.session_state.time_left), 60)
-    st.sidebar.write(f"Time Left: {mins:02d}:{secs:02d}")
+    st.write(f"Time Left: {mins:02d}:{secs:02d}")  # Moved from sidebar to main area
 
     # Display questions and options
     for idx, row in st.session_state.questions.iterrows():
@@ -83,4 +83,4 @@ if st.session_state.test_started:
         st.session_state.test_started = False  # Reset test state after submission
 
 else:
-    st.sidebar.write("Press the button above to start the test.")
+    st.write("Press the button above to start the test.")
